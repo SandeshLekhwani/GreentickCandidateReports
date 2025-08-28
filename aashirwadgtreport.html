@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aashirwad's Interview Performance Analysis</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        /* Custom styles for glassmorphism and animations */
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #054222, #0d6a3a, #108a4b, #0d6a3a, #054222);
+            background-attachment: fixed;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            transform: translateY(-5px);
+        }
+
+        /* Animation for elements fading in on scroll */
+        .fade-in-section {
+            opacity: 0;
+            transition: opacity 0.8s ease-out;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="text-white antialiased">
+
+    <!-- Main Container -->
+    <div class="container mx-auto p-4 sm:p-6 md:p-12">
+
+        <!-- Header Section -->
+        <header class="text-center mb-12 md:mb-16 fade-in-section">
+            <img src="https://greentick.org.in/assets/images/GreenwithTick_WhiteText.png" alt="Green Tick Logo" class="w-48 mx-auto mb-6" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+            <div class="hidden text-center font-bold text-2xl mb-6">Green Tick</div>
+            <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-2">Aashirwad's Interview Performance Analysis</h1>
+            <p class="text-lg md:text-xl text-green-200 max-w-3xl mx-auto">
+                A journey of improvement: Synthesizing feedback from two mock interviews to highlight progress, identify gaps, and define a clear action plan for job readiness.
+            </p>
+        </header>
+
+        <!-- Performance Snapshot Section -->
+        <section class="mb-12 md:mb-16 fade-in-section">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center flex items-center justify-center gap-3"><i data-lucide="bar-chart-3"></i>Performance Snapshot: Growth in Action</h2>
+            <div class="glass-card rounded-2xl shadow-2xl overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left">
+                        <thead class="bg-white/10">
+                            <tr>
+                                <th class="p-4 md:p-5 text-sm font-semibold uppercase tracking-wider">Metric</th>
+                                <th class="p-4 md:p-5 text-sm font-semibold uppercase tracking-wider text-center">Attempt 1</th>
+                                <th class="p-4 md:p-5 text-sm font-semibold uppercase tracking-wider text-center">Attempt 2</th>
+                                <th class="p-4 md:p-5 text-sm font-semibold uppercase tracking-wider text-center">Change</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-t border-white/10">
+                                <td class="p-4 md:p-5 font-medium">Overall Score</td>
+                                <td class="p-4 md:p-5 text-center text-lg">62%</td>
+                                <td class="p-4 md:p-5 text-center text-lg">66%</td>
+                                <td class="p-4 md:p-5 text-center text-lg font-bold text-green-300">+4%</td>
+                            </tr>
+                            <tr class="border-t border-white/10">
+                                <td class="p-4 md:p-5 font-medium">Verdict</td>
+                                <td class="p-4 md:p-5 text-center">Developing</td>
+                                <td class="p-4 md:p-5 text-center">Approaching Job-Ready</td>
+                                <td class="p-4 md:p-5 text-center font-bold text-green-300">Improved</td>
+                            </tr>
+                            <tr class="border-t border-white/10">
+                                <td class="p-4 md:p-5 font-medium">Primary Role Focus</td>
+                                <td class="p-4 md:p-5 text-center">Business Analyst</td>
+                                <td class="p-4 md:p-5 text-center">Founder's Office</td>
+                                <td class="p-4 md:p-5 text-center font-bold text-yellow-300">Shifted</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Charts Section -->
+        <section class="mb-12 md:mb-16 fade-in-section">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center flex items-center justify-center gap-3"><i data-lucide="pie-chart"></i>Data-Driven Analysis</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Overall Progress Chart -->
+                <div class="glass-card rounded-2xl p-6 shadow-2xl">
+                    <h3 class="font-bold text-lg mb-4 text-center">Overall Progress (%)</h3>
+                    <div class="relative h-64 md:h-80">
+                        <canvas id="overallProgressChart"></canvas>
+                    </div>
+                </div>
+                <!-- Skill Analysis Chart -->
+                <div class="glass-card rounded-2xl p-6 shadow-2xl">
+                    <h3 class="font-bold text-lg mb-4 text-center">Skill Analysis (Score / 10)</h3>
+                    <div class="relative h-64 md:h-80">
+                        <canvas id="skillAnalysisChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Improvements Section -->
+        <section class="mb-12 md:mb-16 fade-in-section">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center flex items-center justify-center gap-3"><i data-lucide="sparkles"></i>Key Improvements: The Glow-Up</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="glass-card rounded-2xl p-6 shadow-2xl">
+                    <h3 class="font-bold text-lg mb-2 text-green-300">Confidence & Clarity</h3>
+                    <p class="text-green-100 text-sm">Smoother, more professional delivery with fewer hesitations. Articulated experiences more clearly.</p>
+                </div>
+                <div class="glass-card rounded-2xl p-6 shadow-2xl">
+                    <h3 class="font-bold text-lg mb-2 text-green-300">Conciseness</h3>
+                    <p class="text-green-100 text-sm">Answers were shorter and more direct, avoiding previous long-winded detours.</p>
+                </div>
+                <div class="glass-card rounded-2xl p-6 shadow-2xl">
+                    <h3 class="font-bold text-lg mb-2 text-green-300">Self-Awareness</h3>
+                    <p class="text-green-100 text-sm">Acknowledged weakness of "over-explaining," showing maturity and a proactive attitude.</p>
+                </div>
+                <div class="glass-card rounded-2xl p-6 shadow-2xl">
+                    <h3 class="font-bold text-lg mb-2 text-green-300">Interviewer Engagement</h3>
+                    <p class="text-green-100 text-sm">Actively asked multiple follow-up questions, demonstrating better engagement and curiosity.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Persistent Gaps Section -->
+        <section class="mb-12 md:mb-16 fade-in-section">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center flex items-center justify-center gap-3"><i data-lucide="key-round"></i>Persistent Gaps: The Next Level to Unlock</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="glass-card rounded-2xl p-6 shadow-2xl">
+                    <h3 class="font-bold text-lg mb-2 text-yellow-300">Generic Responses</h3>
+                    <p class="text-yellow-100 text-sm">Problem-solving answers remained high-level, lacking specifics on prioritization, stakeholder management, or risk assessment.</p>
+                </div>
+                <div class="glass-card rounded-2xl p-6 shadow-2xl">
+                    <h3 class="font-bold text-lg mb-2 text-yellow-300">Surface-Level Technical Detail</h3>
+                    <p class="text-yellow-100 text-sm">Resume lists Python, SQL & Power BI, but answers didn't showcase how these tools derived insights or solved problems effectively.</p>
+                </div>
+                <div class="glass-card rounded-2xl p-6 shadow-2xl">
+                    <h3 class="font-bold text-lg mb-2 text-yellow-300">Lack of Quantified Impact</h3>
+                    <p class="text-yellow-100 text-sm">Success stories were not backed by measurable outcomes (e.g., % improvement, cost reduction), making the impact unclear.</p>
+                </div>
+                <div class="glass-card rounded-2xl p-6 shadow-2xl">
+                    <h3 class="font-bold text-lg mb-2 text-yellow-300">Need for More Leadership</h3>
+                    <p class="text-yellow-100 text-sm">Examples focused more on teamwork and support rather than demonstrating proactive leadership or taking initiative.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Action Plan Section -->
+        <section class="fade-in-section">
+            <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center flex items-center justify-center gap-3"><i data-lucide="rocket"></i>Action Plan: The Roadmap to "Hired"</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="glass-card rounded-2xl p-6 md:p-8 shadow-2xl">
+                    <h3 class="text-xl font-bold mb-4 text-center text-green-300">Short-Term (1-4 Weeks)</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-green-300 mt-1 flex-shrink-0"></i>
+                            <div>
+                                <span class="font-semibold">Master the STAR Method:</span>
+                                <p class="text-sm text-green-100">Rigorously practice structuring every behavioral answer using the Situation, Task, Action, Result framework for clarity.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-green-300 mt-1 flex-shrink-0"></i>
+                            <div>
+                                <span class="font-semibold">Quantify Everything:</span>
+                                <p class="text-sm text-green-100">Prepare specific, metric-driven examples for every project (e.g., "reduced NPS fall by X%").</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-green-300 mt-1 flex-shrink-0"></i>
+                            <div>
+                                <span class="font-semibold">Align to the Role:</span>
+                                <p class="text-sm text-green-100">Deeply research the target role and tailor answers to highlight relevant skills like strategic thinking and decision-making.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="glass-card rounded-2xl p-6 md:p-8 shadow-2xl">
+                    <h3 class="text-xl font-bold mb-4 text-center text-yellow-300">Long-Term (2-6 Months)</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-yellow-300 mt-1 flex-shrink-0"></i>
+                            <div>
+                                <span class="font-semibold">Build an Impact Portfolio:</span>
+                                <p class="text-sm text-yellow-100">Curate stories that focus on the measurable business impact created, not just the tasks performed.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-yellow-300 mt-1 flex-shrink-0"></i>
+                            <div>
+                                <span class="font-semibold">Deepen Technical Storytelling:</span>
+                                <p class="text-sm text-yellow-100">Prepare to discuss how you've used tools like Python or SQL to derive specific business insights from data.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-yellow-300 mt-1 flex-shrink-0"></i>
+                            <div>
+                                <span class="font-semibold">Polish Executive Communication:</span>
+                                <p class="text-sm text-yellow-100">Develop a crisp, structured, and metric-oriented communication style suitable for senior stakeholders.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // JavaScript for fade-in animation on scroll
+        const sections = document.querySelectorAll('.fade-in-section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        sections.forEach(section => { observer.observe(section); });
+
+        // Chart.js Implementation
+        document.addEventListener('DOMContentLoaded', () => {
+            const chartFontColor = '#FFFFFF';
+            const chartGridColor = 'rgba(255, 255, 255, 0.2)';
+
+            // Overall Progress Chart
+            const progressCtx = document.getElementById('overallProgressChart').getContext('2d');
+            new Chart(progressCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Attempt 1', 'Attempt 2'],
+                    datasets: [{
+                        label: 'Overall Score',
+                        data: [62, 66],
+                        backgroundColor: [
+                            'rgba(252, 211, 77, 0.5)', // yellow-300
+                            'rgba(110, 231, 183, 0.5)'  // green-300
+                        ],
+                        borderColor: [
+                            'rgba(252, 211, 77, 1)',
+                            'rgba(110, 231, 183, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: { label: (context) => `${context.dataset.label}: ${context.formattedValue}%` }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: { color: chartFontColor, font: { size: 12 } },
+                            grid: { color: chartGridColor }
+                        },
+                        x: {
+                            ticks: { color: chartFontColor, font: { size: 12 } },
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+
+            // Skill Analysis Chart
+            const skillsCtx = document.getElementById('skillAnalysisChart').getContext('2d');
+            new Chart(skillsCtx, {
+                type: 'radar',
+                data: {
+                    labels: ['Technical', 'Non-Technical', 'Communication', 'Problem-Solving', 'Readiness'],
+                    datasets: [{
+                        label: 'Attempt 1',
+                        data: [7, 7, 5, 6, 6],
+                        backgroundColor: 'rgba(252, 211, 77, 0.2)',
+                        borderColor: 'rgba(252, 211, 77, 1)',
+                        pointBackgroundColor: 'rgba(252, 211, 77, 1)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgba(252, 211, 77, 1)'
+                    }, {
+                        label: 'Attempt 2',
+                        data: [6, 7, 7, 6, 7],
+                        backgroundColor: 'rgba(110, 231, 183, 0.2)',
+                        borderColor: 'rgba(110, 231, 183, 1)',
+                        pointBackgroundColor: 'rgba(110, 231, 183, 1)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgba(110, 231, 183, 1)'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { labels: { color: chartFontColor } }
+                    },
+                    scales: {
+                        r: {
+                            angleLines: { color: chartGridColor },
+                            grid: { color: chartGridColor },
+                            pointLabels: { color: chartFontColor, font: { size: 12 } },
+                            ticks: {
+                                color: chartFontColor,
+                                backdropColor: 'rgba(0,0,0,0.5)',
+                                stepSize: 2
+                            },
+                            min: 0,
+                            max: 10
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
