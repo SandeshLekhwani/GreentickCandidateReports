@@ -23,21 +23,22 @@
         /* Custom styles for glassmorphism and animations */
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #054222, #0d6a3a, #108a4b, #0d6a3a, #054222);
+            /* Dark theme gradient background */
+            background: linear-gradient(135deg, #0f172a, #1e293b, #334155);
             background-attachment: fixed;
         }
 
         .glass-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
         }
 
         .glass-card:hover {
-            background: rgba(255, 255, 255, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             transform: translateY(-5px);
         }
 
@@ -52,7 +53,7 @@
         }
     </style>
 </head>
-<body class="text-white antialiased">
+<body class="text-gray-200 antialiased">
 
     <!-- Main Container -->
     <div class="container mx-auto p-4 sm:p-6 md:p-12">
@@ -61,44 +62,44 @@
         <header class="text-center mb-12 md:mb-16 fade-in-section">
             <img src="https://greentick.org.in/assets/images/GreenwithTick_WhiteText.png" alt="Green Tick Logo" class="w-48 mx-auto mb-6" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
             <div class="hidden text-center font-bold text-2xl mb-6">Green Tick</div>
-            <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-2">Aashirwad's Interview Performance Analysis</h1>
-            <p class="text-lg md:text-xl text-green-200 max-w-3xl mx-auto">
+            <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-2 text-white">Aashirwad's Interview Performance Analysis</h1>
+            <p class="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto">
                 A journey of improvement: Synthesizing feedback from two mock interviews to highlight progress, identify gaps, and define a clear action plan for job readiness.
             </p>
         </header>
 
         <!-- Performance Snapshot Section -->
         <section class="mb-12 md:mb-16 fade-in-section">
-            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center flex items-center justify-center gap-3"><i data-lucide="bar-chart-3"></i>Performance Snapshot: Growth in Action</h2>
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center flex items-center justify-center gap-3 text-white"><i data-lucide="bar-chart-3"></i>Performance Snapshot: Growth in Action</h2>
             <div class="glass-card rounded-2xl shadow-2xl overflow-hidden">
                 <div class="overflow-x-auto">
                     <table class="w-full text-left">
-                        <thead class="bg-white/10">
+                        <thead class="bg-white/5">
                             <tr>
-                                <th class="p-4 md:p-5 text-sm font-semibold uppercase tracking-wider">Metric</th>
-                                <th class="p-4 md:p-5 text-sm font-semibold uppercase tracking-wider text-center">Attempt 1</th>
-                                <th class="p-4 md:p-5 text-sm font-semibold uppercase tracking-wider text-center">Attempt 2</th>
-                                <th class="p-4 md:p-5 text-sm font-semibold uppercase tracking-wider text-center">Change</th>
+                                <th class="p-4 md:p-5 text-sm font-semibold uppercase tracking-wider text-slate-300">Metric</th>
+                                <th class="p-4 md:p-5 text-sm font-semibold uppercase tracking-wider text-center text-slate-300">Attempt 1</th>
+                                <th class="p-4 md:p-5 text-sm font-semibold uppercase tracking-wider text-center text-slate-300">Attempt 2</th>
+                                <th class="p-4 md:p-5 text-sm font-semibold uppercase tracking-wider text-center text-slate-300">Change</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr class="border-t border-white/10">
-                                <td class="p-4 md:p-5 font-medium">Overall Score</td>
+                                <td class="p-4 md:p-5 font-medium text-white">Overall Score</td>
                                 <td class="p-4 md:p-5 text-center text-lg">62%</td>
                                 <td class="p-4 md:p-5 text-center text-lg">66%</td>
-                                <td class="p-4 md:p-5 text-center text-lg font-bold text-green-300">+4%</td>
+                                <td class="p-4 md:p-5 text-center text-lg font-bold text-cyan-400">+4%</td>
                             </tr>
                             <tr class="border-t border-white/10">
-                                <td class="p-4 md:p-5 font-medium">Verdict</td>
+                                <td class="p-4 md:p-5 font-medium text-white">Verdict</td>
                                 <td class="p-4 md:p-5 text-center">Developing</td>
                                 <td class="p-4 md:p-5 text-center">Approaching Job-Ready</td>
-                                <td class="p-4 md:p-5 text-center font-bold text-green-300">Improved</td>
+                                <td class="p-4 md:p-5 text-center font-bold text-cyan-400">Improved</td>
                             </tr>
                             <tr class="border-t border-white/10">
-                                <td class="p-4 md:p-5 font-medium">Primary Role Focus</td>
+                                <td class="p-4 md:p-5 font-medium text-white">Primary Role Focus</td>
                                 <td class="p-4 md:p-5 text-center">Business Analyst</td>
                                 <td class="p-4 md:p-5 text-center">Founder's Office</td>
-                                <td class="p-4 md:p-5 text-center font-bold text-yellow-300">Shifted</td>
+                                <td class="p-4 md:p-5 text-center font-bold text-amber-400">Shifted</td>
                             </tr>
                         </tbody>
                     </table>
@@ -108,18 +109,18 @@
 
         <!-- Charts Section -->
         <section class="mb-12 md:mb-16 fade-in-section">
-            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center flex items-center justify-center gap-3"><i data-lucide="pie-chart"></i>Data-Driven Analysis</h2>
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center flex items-center justify-center gap-3 text-white"><i data-lucide="pie-chart"></i>Data-Driven Analysis</h2>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <!-- Overall Progress Chart -->
                 <div class="glass-card rounded-2xl p-6 shadow-2xl">
-                    <h3 class="font-bold text-lg mb-4 text-center">Overall Progress (%)</h3>
+                    <h3 class="font-bold text-lg mb-4 text-center text-white">Overall Progress (%)</h3>
                     <div class="relative h-64 md:h-80">
                         <canvas id="overallProgressChart"></canvas>
                     </div>
                 </div>
                 <!-- Skill Analysis Chart -->
                 <div class="glass-card rounded-2xl p-6 shadow-2xl">
-                    <h3 class="font-bold text-lg mb-4 text-center">Skill Analysis (Score / 10)</h3>
+                    <h3 class="font-bold text-lg mb-4 text-center text-white">Skill Analysis (Score / 10)</h3>
                     <div class="relative h-64 md:h-80">
                         <canvas id="skillAnalysisChart"></canvas>
                     </div>
@@ -129,102 +130,102 @@
 
         <!-- Key Improvements Section -->
         <section class="mb-12 md:mb-16 fade-in-section">
-            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center flex items-center justify-center gap-3"><i data-lucide="sparkles"></i>Key Improvements: The Glow-Up</h2>
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center flex items-center justify-center gap-3 text-white"><i data-lucide="sparkles"></i>Key Improvements: The Glow-Up</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div class="glass-card rounded-2xl p-6 shadow-2xl">
-                    <h3 class="font-bold text-lg mb-2 text-green-300">Confidence & Clarity</h3>
-                    <p class="text-green-100 text-sm">Smoother, more professional delivery with fewer hesitations. Articulated experiences more clearly.</p>
+                    <h3 class="font-bold text-lg mb-2 text-cyan-400">Confidence & Clarity</h3>
+                    <p class="text-slate-300 text-sm">Smoother, more professional delivery with fewer hesitations. Articulated experiences more clearly.</p>
                 </div>
                 <div class="glass-card rounded-2xl p-6 shadow-2xl">
-                    <h3 class="font-bold text-lg mb-2 text-green-300">Conciseness</h3>
-                    <p class="text-green-100 text-sm">Answers were shorter and more direct, avoiding previous long-winded detours.</p>
+                    <h3 class="font-bold text-lg mb-2 text-cyan-400">Conciseness</h3>
+                    <p class="text-slate-300 text-sm">Answers were shorter and more direct, avoiding previous long-winded detours.</p>
                 </div>
                 <div class="glass-card rounded-2xl p-6 shadow-2xl">
-                    <h3 class="font-bold text-lg mb-2 text-green-300">Self-Awareness</h3>
-                    <p class="text-green-100 text-sm">Acknowledged weakness of "over-explaining," showing maturity and a proactive attitude.</p>
+                    <h3 class="font-bold text-lg mb-2 text-cyan-400">Self-Awareness</h3>
+                    <p class="text-slate-300 text-sm">Acknowledged weakness of "over-explaining," showing maturity and a proactive attitude.</p>
                 </div>
                 <div class="glass-card rounded-2xl p-6 shadow-2xl">
-                    <h3 class="font-bold text-lg mb-2 text-green-300">Interviewer Engagement</h3>
-                    <p class="text-green-100 text-sm">Actively asked multiple follow-up questions, demonstrating better engagement and curiosity.</p>
+                    <h3 class="font-bold text-lg mb-2 text-cyan-400">Interviewer Engagement</h3>
+                    <p class="text-slate-300 text-sm">Actively asked multiple follow-up questions, demonstrating better engagement and curiosity.</p>
                 </div>
             </div>
         </section>
 
         <!-- Persistent Gaps Section -->
         <section class="mb-12 md:mb-16 fade-in-section">
-            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center flex items-center justify-center gap-3"><i data-lucide="key-round"></i>Persistent Gaps: The Next Level to Unlock</h2>
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center flex items-center justify-center gap-3 text-white"><i data-lucide="key-round"></i>Persistent Gaps: The Next Level to Unlock</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="glass-card rounded-2xl p-6 shadow-2xl">
-                    <h3 class="font-bold text-lg mb-2 text-yellow-300">Generic Responses</h3>
-                    <p class="text-yellow-100 text-sm">Problem-solving answers remained high-level, lacking specifics on prioritization, stakeholder management, or risk assessment.</p>
+                    <h3 class="font-bold text-lg mb-2 text-amber-400">Generic Responses</h3>
+                    <p class="text-slate-300 text-sm">Problem-solving answers remained high-level, lacking specifics on prioritization, stakeholder management, or risk assessment.</p>
                 </div>
                 <div class="glass-card rounded-2xl p-6 shadow-2xl">
-                    <h3 class="font-bold text-lg mb-2 text-yellow-300">Surface-Level Technical Detail</h3>
-                    <p class="text-yellow-100 text-sm">Resume lists Python, SQL & Power BI, but answers didn't showcase how these tools derived insights or solved problems effectively.</p>
+                    <h3 class="font-bold text-lg mb-2 text-amber-400">Surface-Level Technical Detail</h3>
+                    <p class="text-slate-300 text-sm">Resume lists Python, SQL & Power BI, but answers didn't showcase how these tools derived insights or solved problems effectively.</p>
                 </div>
                 <div class="glass-card rounded-2xl p-6 shadow-2xl">
-                    <h3 class="font-bold text-lg mb-2 text-yellow-300">Lack of Quantified Impact</h3>
-                    <p class="text-yellow-100 text-sm">Success stories were not backed by measurable outcomes (e.g., % improvement, cost reduction), making the impact unclear.</p>
+                    <h3 class="font-bold text-lg mb-2 text-amber-400">Lack of Quantified Impact</h3>
+                    <p class="text-slate-300 text-sm">Success stories were not backed by measurable outcomes (e.g., % improvement, cost reduction), making the impact unclear.</p>
                 </div>
                 <div class="glass-card rounded-2xl p-6 shadow-2xl">
-                    <h3 class="font-bold text-lg mb-2 text-yellow-300">Need for More Leadership</h3>
-                    <p class="text-yellow-100 text-sm">Examples focused more on teamwork and support rather than demonstrating proactive leadership or taking initiative.</p>
+                    <h3 class="font-bold text-lg mb-2 text-amber-400">Need for More Leadership</h3>
+                    <p class="text-slate-300 text-sm">Examples focused more on teamwork and support rather than demonstrating proactive leadership or taking initiative.</p>
                 </div>
             </div>
         </section>
 
         <!-- Action Plan Section -->
         <section class="fade-in-section">
-            <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center flex items-center justify-center gap-3"><i data-lucide="rocket"></i>Action Plan: The Roadmap to "Hired"</h2>
+            <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center flex items-center justify-center gap-3 text-white"><i data-lucide="rocket"></i>Action Plan: The Roadmap to "Hired"</h2>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <div class="glass-card rounded-2xl p-6 md:p-8 shadow-2xl">
-                    <h3 class="text-xl font-bold mb-4 text-center text-green-300">Short-Term (1-4 Weeks)</h3>
+                    <h3 class="text-xl font-bold mb-4 text-center text-cyan-400">Short-Term (1-4 Weeks)</h3>
                     <ul class="space-y-4">
                         <li class="flex items-start gap-3">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-green-300 mt-1 flex-shrink-0"></i>
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-cyan-400 mt-1 flex-shrink-0"></i>
                             <div>
-                                <span class="font-semibold">Master the STAR Method:</span>
-                                <p class="text-sm text-green-100">Rigorously practice structuring every behavioral answer using the Situation, Task, Action, Result framework for clarity.</p>
+                                <span class="font-semibold text-white">Master the STAR Method:</span>
+                                <p class="text-sm text-slate-300">Rigorously practice structuring every behavioral answer using the Situation, Task, Action, Result framework for clarity.</p>
                             </div>
                         </li>
                         <li class="flex items-start gap-3">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-green-300 mt-1 flex-shrink-0"></i>
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-cyan-400 mt-1 flex-shrink-0"></i>
                             <div>
-                                <span class="font-semibold">Quantify Everything:</span>
-                                <p class="text-sm text-green-100">Prepare specific, metric-driven examples for every project (e.g., "reduced NPS fall by X%").</p>
+                                <span class="font-semibold text-white">Quantify Everything:</span>
+                                <p class="text-sm text-slate-300">Prepare specific, metric-driven examples for every project (e.g., "reduced NPS fall by X%").</p>
                             </div>
                         </li>
                         <li class="flex items-start gap-3">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-green-300 mt-1 flex-shrink-0"></i>
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-cyan-400 mt-1 flex-shrink-0"></i>
                             <div>
-                                <span class="font-semibold">Align to the Role:</span>
-                                <p class="text-sm text-green-100">Deeply research the target role and tailor answers to highlight relevant skills like strategic thinking and decision-making.</p>
+                                <span class="font-semibold text-white">Align to the Role:</span>
+                                <p class="text-sm text-slate-300">Deeply research the target role and tailor answers to highlight relevant skills like strategic thinking and decision-making.</p>
                             </div>
                         </li>
                     </ul>
                 </div>
                 <div class="glass-card rounded-2xl p-6 md:p-8 shadow-2xl">
-                    <h3 class="text-xl font-bold mb-4 text-center text-yellow-300">Long-Term (2-6 Months)</h3>
+                    <h3 class="text-xl font-bold mb-4 text-center text-amber-400">Long-Term (2-6 Months)</h3>
                     <ul class="space-y-4">
                         <li class="flex items-start gap-3">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-yellow-300 mt-1 flex-shrink-0"></i>
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-amber-400 mt-1 flex-shrink-0"></i>
                             <div>
-                                <span class="font-semibold">Build an Impact Portfolio:</span>
-                                <p class="text-sm text-yellow-100">Curate stories that focus on the measurable business impact created, not just the tasks performed.</p>
+                                <span class="font-semibold text-white">Build an Impact Portfolio:</span>
+                                <p class="text-sm text-slate-300">Curate stories that focus on the measurable business impact created, not just the tasks performed.</p>
                             </div>
                         </li>
                         <li class="flex items-start gap-3">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-yellow-300 mt-1 flex-shrink-0"></i>
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-amber-400 mt-1 flex-shrink-0"></i>
                             <div>
-                                <span class="font-semibold">Deepen Technical Storytelling:</span>
-                                <p class="text-sm text-yellow-100">Prepare to discuss how you've used tools like Python or SQL to derive specific business insights from data.</p>
+                                <span class="font-semibold text-white">Deepen Technical Storytelling:</span>
+                                <p class="text-sm text-slate-300">Prepare to discuss how you've used tools like Python or SQL to derive specific business insights from data.</p>
                             </div>
                         </li>
                         <li class="flex items-start gap-3">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-yellow-300 mt-1 flex-shrink-0"></i>
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-amber-400 mt-1 flex-shrink-0"></i>
                             <div>
-                                <span class="font-semibold">Polish Executive Communication:</span>
-                                <p class="text-sm text-yellow-100">Develop a crisp, structured, and metric-oriented communication style suitable for senior stakeholders.</p>
+                                <span class="font-semibold text-white">Polish Executive Communication:</span>
+                                <p class="text-sm text-slate-300">Develop a crisp, structured, and metric-oriented communication style suitable for senior stakeholders.</p>
                             </div>
                         </li>
                     </ul>
@@ -252,8 +253,8 @@
 
         // Chart.js Implementation
         document.addEventListener('DOMContentLoaded', () => {
-            const chartFontColor = '#FFFFFF';
-            const chartGridColor = 'rgba(255, 255, 255, 0.2)';
+            const chartFontColor = '#e2e8f0'; // slate-200
+            const chartGridColor = 'rgba(255, 255, 255, 0.15)';
 
             // Overall Progress Chart
             const progressCtx = document.getElementById('overallProgressChart').getContext('2d');
@@ -265,12 +266,12 @@
                         label: 'Overall Score',
                         data: [62, 66],
                         backgroundColor: [
-                            'rgba(252, 211, 77, 0.5)', // yellow-300
-                            'rgba(110, 231, 183, 0.5)'  // green-300
+                            'rgba(251, 191, 36, 0.5)', // amber-400
+                            'rgba(34, 211, 238, 0.5)'  // cyan-400
                         ],
                         borderColor: [
-                            'rgba(252, 211, 77, 1)',
-                            'rgba(110, 231, 183, 1)'
+                            'rgba(251, 191, 36, 1)',
+                            'rgba(34, 211, 238, 1)'
                         ],
                         borderWidth: 1
                     }]
@@ -308,21 +309,21 @@
                     datasets: [{
                         label: 'Attempt 1',
                         data: [7, 7, 5, 6, 6],
-                        backgroundColor: 'rgba(252, 211, 77, 0.2)',
-                        borderColor: 'rgba(252, 211, 77, 1)',
-                        pointBackgroundColor: 'rgba(252, 211, 77, 1)',
+                        backgroundColor: 'rgba(251, 191, 36, 0.2)',
+                        borderColor: 'rgba(251, 191, 36, 1)',
+                        pointBackgroundColor: 'rgba(251, 191, 36, 1)',
                         pointBorderColor: '#fff',
                         pointHoverBackgroundColor: '#fff',
-                        pointHoverBorderColor: 'rgba(252, 211, 77, 1)'
+                        pointHoverBorderColor: 'rgba(251, 191, 36, 1)'
                     }, {
                         label: 'Attempt 2',
                         data: [6, 7, 7, 6, 7],
-                        backgroundColor: 'rgba(110, 231, 183, 0.2)',
-                        borderColor: 'rgba(110, 231, 183, 1)',
-                        pointBackgroundColor: 'rgba(110, 231, 183, 1)',
+                        backgroundColor: 'rgba(34, 211, 238, 0.2)',
+                        borderColor: 'rgba(34, 211, 238, 1)',
+                        pointBackgroundColor: 'rgba(34, 211, 238, 1)',
                         pointBorderColor: '#fff',
                         pointHoverBackgroundColor: '#fff',
-                        pointHoverBorderColor: 'rgba(110, 231, 183, 1)'
+                        pointHoverBorderColor: 'rgba(34, 211, 238, 1)'
                     }]
                 },
                 options: {
