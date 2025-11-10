@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sandesh's Interview Performance Analysis</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        /* Custom styles for glassmorphism and animations */
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Dark theme gradient background */
+            background: linear-gradient(135deg, #0f172a, #1e293b, #334155);
+            background-attachment: fixed;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        /* Animation for elements fading in on scroll */
+        .fade-in-section {
+            opacity: 0;
+            transition: opacity 0.8s ease-out;
+            transform: translateY(20px);
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="text-gray-200 antialiased">
+
+    <!-- Main Container -->
+    <div class="container mx-auto p-4 sm:p-6 md:p-12">
+
+        <!-- Header Section -->
+        <header class="text-center mb-12 md:mb-16 fade-in-section">
+            <img src="https://greentick.org.in/assets/images/GreenwithTick_WhiteText.png" alt="Logo" class="w-48 mx-auto mb-6" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+            <div class="hidden text-center font-bold text-2xl mb-6">Interview Analysis</div>
+            <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-2 text-white">Sandesh's Interview Performance Analysis</h1>
+            <p class="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto">
+                A comprehensive evaluation of product management competencies, strategic thinking, and overall role fit.
+            </p>
+        </header>
+
+        <!-- Overall Score Section -->
+        <section class="mb-12 md:mb-16 fade-in-section">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center flex items-center justify-center gap-3 text-white"><i data-lucide="award"></i>Evaluation Summary</h2>
+            <div class="glass-card rounded-2xl shadow-2xl overflow-hidden p-6 md:p-8">
+                <div class="text-center">
+                    <p class="text-sm font-semibold uppercase tracking-wider text-slate-300 mb-2">Overall Suitability Score</p>
+                    <p class="text-6xl md:text-7xl font-extrabold text-cyan-400 mb-4">78%</p>
+                    <p class="text-lg text-slate-300 max-w-4xl mx-auto">
+                        Sandesh presents as an experienced Product Manager with a strong foundation in solving real-world problems using data-driven approaches, particularly in the D2C e-commerce space. His work on RTO (Return to Origin) prediction demonstrates familiarity with ML model deployment, A/B testing frameworks, and balancing business impact with user experience.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Charts Section -->
+        <section class="mb-12 md:mb-16 fade-in-section">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center flex items-center justify-center gap-3 text-white"><i data-lucide="pie-chart"></i>Data-Driven Analysis</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Skill Analysis Chart -->
+                <div class="glass-card rounded-2xl p-6 shadow-2xl">
+                    <h3 class="font-bold text-lg mb-4 text-center text-white">Competency Radar (Aggregated)</h3>
+                    <div class="relative h-64 md:h-96">
+                        <canvas id="skillAnalysisChart"></canvas>
+                    </div>
+                </div>
+                <!-- New Bar Chart -->
+                <div class="glass-card rounded-2xl p-6 shadow-2xl">
+                    <h3 class="font-bold text-lg mb-4 text-center text-white">Competency-Based Evaluation (Score / 5)</h3>
+                    <div class="relative h-64 md:h-96">
+                        <canvas id="competencyBarChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Case Study Section -->
+        <section class="mb-12 md:mb-16 fade-in-section">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center flex items-center justify-center gap-3 text-white"><i data-lucide="file-text"></i>Case Study Summary: Notion Calendar</h2>
+            <div class="glass-card rounded-2xl shadow-2xl overflow-hidden p-6 md:p-8">
+                <p class="text-lg text-slate-300 max-w-4xl mx-auto">
+                    In the case study around Notion's calendar integration, Sandesh initially identified integration and automation as strengths. He positioned automation between databases and calendars as a differentiated value. While this was a valid angle, his prioritization logic and clarity weakened slightly in later parts of the discussion, lacking a sharper articulation of value delivery and user needs alignment.
+                </p>
+            </div>
+        </section>
+
+
+        <!-- Key Strengths Section -->
+        <section class="mb-12 md:mb-16 fade-in-section">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center flex items-center justify-center gap-3 text-white"><i data-lucide="sparkles"></i>Key Strengths</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="glass-card rounded-2xl p-6 shadow-2xl">
+                    <h3 class="font-bold text-lg mb-2 text-cyan-400">ML Productization</h3>
+                    <p class="text-slate-300 text-sm">Strong grounding in ML productization for real-world problems (RTO reduction).</p>
+                </div>
+                <div class="glass-card rounded-2xl p-6 shadow-2xl">
+                    <h3 class="font-bold text-lg mb-2 text-cyan-400">Structured Problem-Solving</h3>
+                    <p class="text-slate-300 text-sm">Structured approach to problem-solving and A/B experimentation.</p>
+                </div>
+                <div class="glass-card rounded-2xl p-6 shadow-2xl">
+                    <h3 class="font-bold text-lg mb-2 text-cyan-400">Balanced Mindset</h3>
+                    <p class="text-slate-300 text-sm">Balanced mindset between business metrics and customer experience.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Identified Weaknesses Section -->
+        <section class="mb-12 md:mb-16 fade-in-section">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center flex items-center justify-center gap-3 text-white"><i data-lucide="key-round"></i>Identified Weaknesses</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="glass-card rounded-2xl p-6 shadow-2xl">
+                    <h3 class="font-bold text-lg mb-2 text-amber-400">MVP Definition</h3>
+                    <p class="text-slate-300 text-sm">MVP thinking lacked sharpness in directly mapping user problems to features.</p>
+                </div>
+                <div class="glass-card rounded-2xl p-6 shadow-2xl">
+                    <h3 class="font-bold text-lg mb-2 text-amber-400">Strategic Gaps</h3>
+                    <p class="text-slate-300 text-sm">Underutilized the opportunity to showcase product strategy, collaboration, or leadership in the case study.</p>
+                </div>
+                <div class="glass-card rounded-2xl p-6 shadow-2xl">
+                    <h3 class="font-bold text-lg mb-2 text-amber-400">Abstract Communication</h3>
+                    <p class="text-slate-300 text-sm">Communication became slightly abstract when pushed for deeper reasoning (e.g., automation over task linking vs. unified views).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Recommendation Section -->
+        <section class="fade-in-section">
+            <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center flex items-center justify-center gap-3 text-white"><i data-lucide="rocket"></i>Final Recommendation & Fitment</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="glass-card rounded-2xl p-6 md:p-8 shadow-2xl">
+                    <h3 class="text-xl font-bold mb-4 text-center text-cyan-400">Final Recommendation</h3>
+                    <p class="text-slate-300">Sandesh demonstrates strong potential as a mid-to-senior level Product Manager, particularly in B2B SaaS, data-driven, or e-commerce product roles. He thrives in execution-heavy environments with a strong analytical component. However, for a role that demands strategic clarity, sharp MVP definition, or customer-first roadmap planning (like at Notion), he may need to deepen his product sense and communication of strategic trade-offs.</p>
+                </div>
+                <div class="glass-card rounded-2xl p-6 md:p-8 shadow-2xl">
+                    <h3 class="text-xl font-bold mb-4 text-center text-amber-400">Fitment Suggestion</h3>
+                    <p class="text-slate-300">Suitable for execution-oriented PM roles with strong data and experimentation components. May need mentorship or support in product visioning and go-to-market alignment for more strategy-heavy PM roles.</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // JavaScript for fade-in animation on scroll
+        const sections = document.querySelectorAll('.fade-in-section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        sections.forEach(section => { observer.observe(section); });
+
+        // Chart.js Implementation
+        document.addEventListener('DOMContentLoaded', () => {
+            const chartFontColor = '#e2e8f0'; // slate-200
+            const chartGridColor = 'rgba(255, 255, 255, 0.15)';
+            const chartBorderColor = 'rgba(34, 211, 238, 1)'; // cyan-400
+            const chartBgColor = 'rgba(34, 211, 238, 0.2)';
+
+            // Data for charts
+            const radarData = {
+                labels: ['Product Sense', 'Problem-Solving', 'Execution', 'Leadership', 'Communication'],
+                datasets: [{
+                    label: 'Competency Score',
+                    data: [3.66, 4.0, 3.66, 3.25, 3.75], // (4+3.5+3.5)/3, (4+4+4)/3, (4+3.5+3.5)/3, (3.5+3+3+3.5)/4, (3.5+4+3.5+4)/4
+                    backgroundColor: chartBgColor,
+                    borderColor: chartBorderColor,
+                    pointBackgroundColor: chartBorderColor,
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: chartBorderColor
+                }]
+            };
+
+            const barData = {
+                labels: [
+                    'Domain Knowledge', 'Problem-Solving', 'Analytical Thinking', 'Process Understanding',
+                    'Data Interpretation', 'Confidence & Poise', 'Adaptability', 'Professionalism', 
+                    'Industry Awareness', 'Creativity', 'Decision-Making', 'Communication', 
+                    'Leadership', 'Empathy', 'Time Management', 'Resilience',
+                    'Teamwork', 'Negotiation'
+                ],
+                datasets: [{
+                    label: 'Score (out of 5)',
+                    data: [
+                        4, 4, 4, 4, 
+                        4, 4, 4, 4, 
+                        3.5, 3.5, 3.5, 3.5, 
+                        3.5, 3.5, 3.5, 3.5,
+                        3, 3
+                    ], // Sorted for visual grouping
+                    backgroundColor: (context) => {
+                        const value = context.dataset.data[context.dataIndex];
+                        if (value >= 4) return 'rgba(34, 211, 238, 0.7)'; // Strong (cyan)
+                        if (value >= 3.5) return 'rgba(163, 230, 53, 0.7)'; // Solid (lime)
+                        return 'rgba(251, 191, 36, 0.7)'; // Needs Development (amber)
+                    },
+                    borderColor: (context) => {
+                        const value = context.dataset.data[context.dataIndex];
+                        if (value >= 4) return 'rgba(34, 211, 238, 1)';
+                        if (value >= 3.5) return 'rgba(163, 230, 53, 1)';
+                        return 'rgba(251, 191, 36, 1)';
+                    },
+                    borderWidth: 1
+                }]
+            };
+
+            // Skill Analysis Chart (Radar)
+            const skillsCtx = document.getElementById('skillAnalysisChart').getContext('2d');
+            new Chart(skillsCtx, {
+                type: 'radar',
+                data: radarData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        r: {
+                            angleLines: { color: chartGridColor },
+                            grid: { color: chartGridColor },
+                            pointLabels: { color: chartFontColor, font: { size: 12 } },
+                            ticks: {
+                                color: chartFontColor,
+                                backdropColor: 'rgba(0,0,0,0.5)',
+                                stepSize: 1
+                            },
+                            min: 0,
+                            max: 5
+                        }
+                    }
+                }
+            });
+
+            // New Competency Bar Chart
+            const barCtx = document.getElementById('competencyBarChart').getContext('2d');
+            new Chart(barCtx, {
+                type: 'bar', // Horizontal bar
+                data: barData,
+                options: {
+                    indexAxis: 'y', // This makes it a horizontal bar chart
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: 5,
+                            ticks: { color: chartFontColor, font: { size: 12 } },
+                            grid: { color: chartGridColor }
+                        },
+                        y: {
+                            ticks: { color: chartFontColor, font: { size: 12 } },
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
