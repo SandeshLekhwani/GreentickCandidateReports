@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saadaa | Financial Controller — Candidate Report (Naveen Chawla)</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0f172a, #1e293b, #334155);
+      background-attachment: fixed;
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      transition: all 0.3s ease;
+    }
+    .glass-card:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transform: translateY(-4px);
+    }
+    .fade-in-section {
+      opacity: 0;
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      transform: translateY(18px);
+    }
+    .fade-in-section.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="text-gray-200 antialiased">
+  <div class="container mx-auto p-4 sm:p-6 md:p-10">
+
+    <!-- Header -->
+    <header class="text-center mb-10 md:mb-14 fade-in-section">
+      <img src="https://greentick.org.in/assets/images/GreenwithTick_WhiteText.png" alt="Logo" class="w-40 mx-auto mb-6" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+      <div class="hidden text-center font-bold text-2xl mb-6">Candidate Evaluation</div>
+      <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-2 text-white">Financial Controller — Candidate Report</h1>
+      <p class="text-slate-300 text-sm md:text-base">Saadaa • Jaipur, Rajasthan • Nov 11, 2025</p>
+      <p class="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto mt-3">Candidate: <span class="font-semibold text-white">Naveen Chawla</span> • Interview Type: AI‑Led First Round (Voice)</p>
+    </header>
+
+    <!-- Summary -->
+    <section class="mb-10 md:mb-14 fade-in-section">
+      <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center flex items-center justify-center gap-3 text-white"><i data-lucide="award"></i>Evaluation Summary</h2>
+      <div class="glass-card rounded-2xl shadow-2xl overflow-hidden p-6 md:p-8">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+          <div class="text-center">
+            <p class="text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Overall Fit Score</p>
+            <p class="text-6xl md:text-7xl font-extrabold text-cyan-400 mb-2">72%</p>
+            <p class="text-slate-400 text-xs">Avg. of core ratings (out of 5) normalized</p>
+          </div>
+          <div class="lg:col-span-2">
+            <p class="text-base md:text-lg text-slate-200">
+              Naveen is a <span class="font-semibold">Chartered Accountant</span> with strong foundations in accounting, compliance, and audits.
+              He led a complex GST rollout with <em>zero-error</em> processing, owns internal/external/IFC audits, and drives revenue closures.
+              For Saadaa’s D2C/E‑commerce charter, he should deepen exposure to unit economics and FP&amp;A analytics to complement his
+              control‑heavy strengths.
+            </p>
+            <div class="flex flex-wrap gap-2 mt-4">
+              <span class="px-3 py-1 rounded-full bg-cyan-900/40 text-cyan-300 text-xs border border-cyan-400/30">Compliance-Strong</span>
+              <span class="px-3 py-1 rounded-full bg-emerald-900/30 text-emerald-300 text-xs border border-emerald-400/30">Audit Readiness</span>
+              <span class="px-3 py-1 rounded-full bg-amber-900/30 text-amber-300 text-xs border border-amber-400/30">FP&amp;A Depth — Build</span>
+              <span class="px-3 py-1 rounded-full bg-fuchsia-900/30 text-fuchsia-300 text-xs border border-fuchsia-400/30">E‑com KPIs — Ramp</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Charts -->
+    <section class="mb-10 md:mb-14 fade-in-section">
+      <h2 class="text-2xl md:3xl font-bold mb-6 text-center flex items-center justify-center gap-3 text-white"><i data-lucide="bar-chart-3"></i>Data‑Driven View</h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="glass-card rounded-2xl p-6 shadow-2xl">
+          <h3 class="font-bold text-lg mb-4 text-center text-white">Core Ratings (Out of 5)</h3>
+          <div class="relative h-64 md:h-96">
+            <canvas id="coreBarChart"></canvas>
+          </div>
+        </div>
+        <div class="glass-card rounded-2xl p-6 shadow-2xl">
+          <h3 class="font-bold text-lg mb-4 text-center text-white">Competency Radar</h3>
+          <div class="relative h-64 md:h-96">
+            <canvas id="radarChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Alignment -->
+    <section class="mb-10 md:mb-14 fade-in-section">
+      <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center flex items-center justify-center gap-3 text-white"><i data-lucide="check-circle-2"></i>Alignment to Saadaa Role</h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="glass-card rounded-2xl p-6">
+          <h3 class="text-cyan-400 font-semibold mb-2">Accounting & Financial Management</h3>
+          <p class="text-slate-300 text-sm">Managed P2P, inter‑company, reconciliations, and multi‑entity closes (GSK, BBC Global News). Exposure to MIS and revenue closure; scope to deepen budgeting/forecasting models.</p>
+        </div>
+        <div class="glass-card rounded-2xl p-6">
+          <h3 class="text-cyan-400 font-semibold mb-2">Compliance & Audit</h3>
+          <p class="text-slate-300 text-sm">Led GST implementation in dynamic regulation; owns internal, external, and IFC audits; maintains SOPs with written confirmations and stakeholder communication.</p>
+        </div>
+        <div class="glass-card rounded-2xl p-6">
+          <h3 class="text-cyan-400 font-semibold mb-2">Analysis & Strategy</h3>
+          <p class="text-slate-300 text-sm">Analytical mindset; needs ramp‑up on E‑commerce KPIs (CAC, LTV, ROAS) and unit economics for decision support.</p>
+        </div>
+        <div class="glass-card rounded-2xl p-6">
+          <h3 class="text-cyan-400 font-semibold mb-2">Team Leadership</h3>
+          <p class="text-slate-300 text-sm">Simplifies finance for non‑finance teams with examples and GL annotations; leadership exposure moderate and coachable.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Strengths / Development -->
+    <section class="mb-10 md:mb-14 fade-in-section">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center flex items-center justify-center gap-3 text-white"><i data-lucide="sparkles"></i>Strengths</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="glass-card rounded-2xl p-6"><h3 class="font-semibold text-cyan-400 mb-1">Compliance & Governance</h3><p class="text-sm text-slate-300">Deep expertise in GST, statutory filings, and internal controls.</p></div>
+            <div class="glass-card rounded-2xl p-6"><h3 class="font-semibold text-cyan-400 mb-1">Process Orientation</h3><p class="text-sm text-slate-300">Tracks notifications, filters applicability, validates via consultants, updates SOPs.</p></div>
+            <div class="glass-card rounded-2xl p-6"><h3 class="font-semibold text-cyan-400 mb-1">Audit & Accuracy</h3><p class="text-sm text-slate-300">Zero‑error GST go‑live; meticulous execution and control mindset.</p></div>
+            <div class="glass-card rounded-2xl p-6"><h3 class="font-semibold text-cyan-400 mb-1">Communication</h3><p class="text-sm text-slate-300">Adapts explanations for non‑finance stakeholders with practical examples.</p></div>
+          </div>
+        </div>
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center flex items-center justify-center gap-3 text-white"><i data-lucide="alert-triangle"></i>Areas for Development</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="glass-card rounded-2xl p-6"><h3 class="font-semibold text-amber-400 mb-1">D2C / E‑com Finance</h3><p class="text-sm text-slate-300">Fluency in CAC, LTV, ROAS, cohort margins & channel P&amp;L.</p></div>
+            <div class="glass-card rounded-2xl p-6"><h3 class="font-semibold text-amber-400 mb-1">Strategic FP&amp;A</h3><p class="text-sm text-slate-300">Forecasting, variance analysis & profitability drivers.</p></div>
+            <div class="glass-card rounded-2xl p-6"><h3 class="font-semibold text-amber-400 mb-1">Automation & BI</h3><p class="text-sm text-slate-300">Dashboards for MIS & faster closes; ERP/analytics integration.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Compensation & Availability -->
+    <section class="mb-10 md:mb-14 fade-in-section">
+      <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center flex items-center justify-center gap-3 text-white"><i data-lucide="wallet"></i>Compensation & Availability</h2>
+      <div class="glass-card rounded-2xl p-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-sm">
+          <div class="glass-card rounded-xl p-4"><p class="text-slate-400">Current Structure</p><p class="text-slate-100 font-semibold">Fixed only (no variable)</p></div>
+          <div class="glass-card rounded-xl p-4"><p class="text-slate-400">Expected Hike</p><p class="text-slate-100 font-semibold">10–15% on fixed CTC</p></div>
+          <div class="glass-card rounded-xl p-4"><p class="text-slate-400">Notice Period</p><p class="text-slate-100 font-semibold">More than 30 days</p></div>
+          <div class="glass-card rounded-xl p-4"><p class="text-slate-400">Joining Constraints</p><p class="text-slate-100 font-semibold">None beyond notice period</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final Recommendation -->
+    <section class="mb-10 md:mb-14 fade-in-section">
+      <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center flex items-center justify-center gap-3 text-white"><i data-lucide="rocket"></i>Final Recommendation</h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="glass-card rounded-2xl p-6 md:p-8 shadow-2xl">
+          <h3 class="text-xl font-bold mb-3 text-center text-cyan-400">Recommendation</h3>
+          <p class="text-slate-300">✅ <span class="font-medium">Proceed to Hiring Manager Round.</span> Explore FP&amp;A depth, fluency in E‑commerce metrics (CAC, LTV, ROAS), automation mindset for scale, and a 6–12 month roadmap towards full controllership.</p>
+        </div>
+        <div class="glass-card rounded-2xl p-6 md:p-8 shadow-2xl">
+          <h3 class="text-xl font-bold mb-3 text-center text-fuchsia-300">Next‑Round Focus</h3>
+          <ul class="list-disc text-slate-300 pl-6 space-y-2 text-sm">
+            <li>Month‑end close acceleration: framework & KPIs</li>
+            <li>Build an E‑com KPI deck (CAC→LTV flywheel) with sample data</li>
+            <li>Case: Margin analysis & cost optimization for a D2C SKU</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Notes -->
+    <section class="mb-10 md:mb-14 fade-in-section">
+      <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center flex items-center justify-center gap-3 text-white"><i data-lucide="sticky-note"></i>Recruiter Notes</h2>
+      <div class="glass-card rounded-2xl p-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <textarea class="w-full h-40 glass-card rounded-xl p-4 text-slate-100 placeholder-slate-400" placeholder="Add notes…"></textarea>
+          <div class="space-y-3">
+            <button onclick="window.print()" class="w-full py-3 rounded-xl bg-cyan-400/90 hover:bg-cyan-300 text-slate-900 font-semibold transition">Print / Save as PDF</button>
+            <button onclick="toggleSections()" class="w-full py-3 rounded-xl bg-transparent border border-slate-500 hover:bg-white/10 text-white font-semibold transition">Toggle Details</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="text-center text-slate-400 text-xs mb-6">© 2025 Saadaa • Finance Hiring • Template by GreenTick AI Interview Assistant</footer>
+  </div>
+
+  <script>
+    // Lucide
+    lucide.createIcons();
+
+    // Fade-in on scroll
+    const sections = document.querySelectorAll('.fade-in-section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    sections.forEach(section => observer.observe(section));
+
+    function toggleSections() {
+      document.querySelectorAll('.glass-card').forEach(el => {
+        if (!el.closest('section') || el.closest('section').querySelector('canvas')) return;
+      });
+      sections.forEach(s => s.classList.toggle('is-visible'));
+    }
+
+    // Chart.js colors
+    const chartFontColor = '#e2e8f0';
+    const chartGridColor = 'rgba(255,255,255,0.15)';
+    const cyan = 'rgba(34,211,238,1)';
+    const cyanBg = 'rgba(34,211,238,0.25)';
+    const lime = 'rgba(163,230,53,1)';
+    const amber = 'rgba(251,191,36,1)';
+
+    // Core ratings from the evaluation
+    const coreLabels = [
+      'Financial Knowledge & Compliance',
+      'Strategic Finance & Business Insights',
+      'Analytical & Reporting Skills',
+      'Team Leadership & Collaboration',
+      'Tech Proficiency (ERP / BI)'
+    ];
+    const coreValues = [4.5, 3.0, 3.5, 4.0, 3.0];
+
+    // Core Bar Chart
+    const cbx = document.getElementById('coreBarChart').getContext('2d');
+    new Chart(cbx, {
+      type: 'bar',
+      data: {
+        labels: coreLabels,
+        datasets: [{
+          label: 'Score (out of 5)',
+          data: coreValues,
+          backgroundColor: coreValues.map(v => v >= 4 ? 'rgba(34,211,238,0.7)' : (v >= 3.5 ? 'rgba(163,230,53,0.7)' : 'rgba(251,191,36,0.7)')),
+          borderColor: coreValues.map(v => v >= 4 ? cyan : (v >= 3.5 ? lime : amber)),
+          borderWidth: 1,
+          borderRadius: 6
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display:false } },
+        scales: {
+          x: {
+            beginAtZero: true,
+            max: 5,
+            ticks: { color: chartFontColor, font: { size: 12 } },
+            grid: { color: chartGridColor }
+          },
+          y: {
+            ticks: { color: chartFontColor, font: { size: 12 } },
+            grid: { display: false }
+          }
+        }
+      }
+    });
+
+    // Radar chart — aggregate competencies mapping to role
+    const radar = document.getElementById('radarChart').getContext('2d');
+    new Chart(radar, {
+      type: 'radar',
+      data: {
+        labels: ['Compliance', 'Controls', 'FP&A', 'E‑com KPIs', 'Stakeholder Comms'],
+        datasets: [{
+          label: 'Profile Match',
+          data: [4.5, 4.2, 3.2, 2.8, 4.0],
+          backgroundColor: cyanBg,
+          borderColor: cyan,
+          pointBackgroundColor: cyan
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display:false } },
+        scales: {
+          r: {
+            angleLines: { color: chartGridColor },
+            grid: { color: chartGridColor },
+            pointLabels: { color: chartFontColor, font: { size: 12 } },
+            ticks: { color: chartFontColor, backdropColor: 'rgba(0,0,0,0.55)', stepSize: 1 },
+            min: 0, max: 5
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
