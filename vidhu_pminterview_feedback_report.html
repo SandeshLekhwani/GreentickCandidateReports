@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vidhu's Interview Performance Analysis</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        /* Custom styles for glassmorphism and animations */
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Dark theme gradient background */
+            background: linear-gradient(135deg, #0f172a, #1e293b, #334155);
+            background-attachment: fixed;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        /* Animation for elements fading in on scroll */
+        .fade-in-section {
+            opacity: 0;
+            transition: opacity 0.8s ease-out;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+        }
+        
+        .timeline-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .timeline-arrow {
+            width: 4px;
+            height: 40px;
+            background-color: #06b6d4; /* Tailwind cyan-500 */
+            position: relative;
+            margin: 8px 0;
+        }
+
+        .timeline-arrow::before {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 8px;
+            border-style: solid;
+            border-color: #06b6d4 transparent transparent transparent;
+        }
+
+        @media (min-width: 1024px) {
+            .timeline-container {
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: flex-start;
+            }
+            .timeline-arrow {
+                height: 4px;
+                width: 80px;
+                margin: 40px 16px;
+            }
+            .timeline-arrow::before {
+                top: 50%;
+                left: 100%;
+                transform: translateY(-50%) rotate(-90deg);
+            }
+        }
+    </style>
+</head>
+<body class="text-gray-200 antialiased">
+    <!-- Main Container -->
+    <div class="container mx-auto p-6 md:p-12">
+
+        <!-- Header Section -->
+        <header class="text-center mb-12 md:mb-16 fade-in-section">
+            <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-2 text-white">Vidhu's Interview Performance Analysis</h1>
+            <p class="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto mt-4">
+                A data-driven evaluation of Vidhu's Product Manager interview performance and a targeted action plan for improvement.
+            </p>
+        </header>
+
+        <!-- Overall Snapshot & Chart Section -->
+        <section class="mb-12 md:mb-16 fade-in-section">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center flex items-center justify-center gap-3 text-white">
+                <i data-lucide="bar-chart-3"></i>Performance Snapshot
+            </h2>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Overall Summary Table -->
+                <div class="lg:col-span-1 glass-card rounded-2xl shadow-2xl overflow-hidden">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left">
+                            <thead class="bg-white/5">
+                                <tr>
+                                    <th class="p-4 text-sm font-semibold uppercase tracking-wider text-slate-300">Metric</th>
+                                    <th class="p-4 text-sm font-semibold uppercase tracking-wider text-center text-slate-300">Result</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-t border-white/10">
+                                    <td class="p-4 font-medium text-white">Overall Suitability Score</td>
+                                    <td class="p-4 text-center text-lg font-bold text-amber-400">60%</td>
+                                </tr>
+                                <tr class="border-t border-white/10">
+                                    <td class="p-4 font-medium text-white">Target Role Fitment</td>
+                                    <td class="p-4 text-center">Strong APM or Execution PM</td>
+                                </tr>
+                                <tr class="border-t border-white/10">
+                                    <td class="p-4 font-medium text-white">Final Verdict</td>
+                                    <td class="p-4 text-center text-yellow-400 font-bold">Approaching Job-Ready</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Skill Radar Chart -->
+                <div class="lg:col-span-2 glass-card rounded-2xl p-6 shadow-2xl">
+                    <h3 class="font-bold text-lg mb-4 text-center text-white">Competency Profile (Rating / 5)</h3>
+                    <div class="relative h-64 md:h-80">
+                        <canvas id="competencyRadarChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Strengths, Weaknesses & Discrepancies -->
+        <section class="mb-12 md:mb-16 fade-in-section">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center flex items-center justify-center gap-3 text-white">
+                <i data-lucide="zap"></i>Key Observations
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-card p-6 rounded-2xl">
+                    <h3 class="text-cyan-400 font-bold text-xl mb-3 flex items-center gap-2"><i data-lucide="check-circle"></i>Strengths</h3>
+                    <ul class="list-disc list-inside text-slate-300 text-sm space-y-2">
+                        <li>Structured Diagnostic Thinking: Uses frameworks (Technical/External/Customer) to diagnose problems.</li>
+                        <li>High Industry Awareness: Demonstrates up-to-date knowledge of current payment regulations (e.g., RBI crackdowns) and external market factors.</li>
+                        <li>Metric Awareness: Familiar with basic product metrics (MAU, transactions) and measurement frameworks.</li>
+                    </ul>
+                </div>
+                <div class="glass-card p-6 rounded-2xl">
+                    <h3 class="text-amber-400 font-bold text-xl mb-3 flex items-center gap-2"><i data-lucide="x-circle"></i>Weaknesses</h3>
+                    <ul class="list-disc list-inside text-slate-300 text-sm space-y-2">
+                        <li>Poor Coherence: Communication was rambling and lacked structure, making it difficult to follow core arguments (Rating: 2.5).</li>
+                        <li>Indecisiveness: Demonstrated a marked reluctance to commit to a single primary driver, failing to execute clear, assertive decision-making under pressure.</li>
+                        <li>Lack of Innovation: Solutions were generic; struggled with creativity (Rating: 2.5).</li>
+                    </ul>
+                </div>
+                <div class="glass-card p-6 rounded-2xl">
+                    <h3 class="text-yellow-400 font-bold text-xl mb-3 flex items-center gap-2"><i data-lucide="alert-triangle"></i>Discrepancies</h3>
+                    <ul class="list-disc list-inside text-slate-300 text-sm space-y-2">
+                        <li>Ownership vs. Delivery: Potential misalignment between claimed product ownership and the depth/clarity of execution details provided.</li>
+                        <li>Future-Focused Metrics: The core product experience described relied solely on future-tense utilization metrics, suggesting limited hands-on experience in tracking and reporting on live, high-stakes revenue or business KPIs.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Competency Table -->
+        <section class="mb-12 md:mb-16 fade-in-section">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center flex items-center justify-center gap-3 text-white">
+                <i data-lucide="clipboard-list"></i>Detailed Competency Ratings
+            </h2>
+            <div class="glass-card rounded-2xl overflow-x-auto">
+                <table class="w-full text-left">
+                    <thead class="bg-white/5">
+                        <tr>
+                            <th class="p-4 text-sm font-semibold uppercase tracking-wider text-slate-300">Competency</th>
+                            <th class="p-4 text-sm font-semibold uppercase tracking-wider text-center text-slate-300">Rating (1-5)</th>
+                            <th class="p-4 text-sm font-semibold uppercase tracking-wider text-slate-300">Detailed Comments</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t border-white/10"><td class="p-4 font-medium text-white">Domain Knowledge</td><td class="p-4 text-center">4.0</td><td class="p-4 text-slate-300">Strong awareness of external factors and regulatory landscape (RBI, credit card payments) relevant to the problem.</td></tr>
+                        <tr class="border-t border-white/10"><td class="p-4 font-medium text-white">Problem-Solving</td><td class="p-4 text-center">4.0</td><td class="p-4 text-slate-300">Excellent, holistic structured approach to diagnosis (Technical/External/Customer).</td></tr>
+                        <tr class="border-t border-white/10"><td class="p-4 font-medium text-white">Analytical Thinking</td><td class="p-4 text-center">3.5</td><td class="p-4 text-slate-300">Used correct analytical concepts (logs, error coverage, time-series analysis) but lacked sharp insights.</td></tr>
+                        <tr class="border-t border-white/10"><td class="p-4 font-medium text-white">Creativity / Innovation</td><td class="p-4 text-center">2.5</td><td class="p-4 text-slate-300">Solutions were generic ("increase discounts") and lacked uniqueness or strategic 'product sense.'</td></tr>
+                        <tr class="border-t border-white/10"><td class="p-4 text-white">Communication & Coherence</td><td class="p-4 text-center text-yellow-400 font-bold">2.5</td><td class="p-4 text-slate-300">Explanations were frequently unstructured and meandering, though the intent to follow a logical path was present. Professional poise needs significant improvement.</td></tr>
+                        <tr class="border-t border-white/10"><td class="p-4 font-medium text-white">Decision-Making / Judgment</td><td class="p-4 text-center">3.0</td><td class="p-4 text-slate-300">Eventually committed to a single driver after multiple prompts, slightly improving the score, but the reluctance was a major issue.</td></tr>
+                        <tr class="border-t border-white/10"><td class="p-4 font-medium text-white">Confidence & Poise</td><td class="p-4 text-center">2.5</td><td class="p-4 text-slate-300">Struggled to assert strong stances, resulting in a hesitant tone and questioning the interviewer's starting context.</td></tr>
+                        <tr class="border-t border-white/10"><td class="p-4 font-medium text-white">Leadership / Initiative</td><td class="p-4 text-center">2.5</td><td class="p-4 text-slate-300">Little evidence of directional ownership or driving cross-functional outcomes, mostly focusing on personal execution.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Action Plan Section (Timeline Format) -->
+        <section class="mb-12 md:mb-16 fade-in-section">
+            <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center flex items-center justify-center gap-3 text-white">
+                <i data-lucide="calendar"></i> 60-Day Action Roadmap
+            </h2>
+            <div class="timeline-container">
+                <!-- Month 1: Short-Term Focus (Communication & Decisiveness) -->
+                <div class="glass-card rounded-2xl p-6 md:p-8 shadow-2xl lg:w-5/12">
+                    <h3 class="text-xl font-bold mb-4 text-center text-cyan-400">Month 1: Communication & Clarity (Weeks 1-4)</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="edit-3" class="w-5 h-5 text-cyan-400 mt-1 flex-shrink-0"></i>
+                            <div>
+                                <span class="font-semibold text-white">Master the Pyramid Principle:</span>
+                                <p class="text-sm text-slate-300">Start every answer with the Conclusion first, then provide supporting details. Use internal signposting (e.g., "I will analyze three pillars: technical, external, and customer").</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="mic" class="w-5 h-5 text-cyan-400 mt-1 flex-shrink-0"></i>
+                            <div>
+                                <span class="font-semibold text-white">Record & Critique:</span>
+                                <p class="text-sm text-slate-300">Record mock answers and actively remove "rambling" segments to enforce conciseness. Practice concise, professional language that avoids fillers.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="message-square-text" class="w-5 h-5 text-cyan-400 mt-1 flex-shrink-0"></i>
+                            <div>
+                                <span class="font-semibold text-white">Proactive Clarification:</span>
+                                <p class="text-sm text-slate-300">Practice asking concise, high-value clarifying questions early on, ensuring they demonstrate understanding rather than confusion.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="cpu" class="w-5 h-5 text-cyan-400 mt-1 flex-shrink-0"></i>
+                            <div>
+                                <span class="font-semibold text-white">Decisiveness Drill:</span>
+                                <p class="p-sm text-slate-300">Practice the "one driver" method: immediately state the chosen priority and spend 80% of the time defending it logically, rather than debating alternatives.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Timeline Connector -->
+                <div class="timeline-arrow"></div>
+
+                <!-- Month 2: Long-Term Focus (Strategy & Impact) -->
+                <div class="glass-card rounded-2xl p-6 md:p-8 shadow-2xl lg:w-5/12">
+                    <h3 class="text-xl font-bold mb-4 text-center text-amber-400">Month 2: Strategic Decisiveness & Impact (Weeks 5-8)</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="trending-up" class="w-5 h-5 text-amber-400 mt-1 flex-shrink-0"></i>
+                            <div>
+                                <span class="font-semibold text-white">Quantify Everything:</span>
+                                <p class="p-sm text-slate-300">Ensure every success story or proposed solution is tied to a specific, measurable business outcome (e.g., "$X revenue increase" or "Y% reduction in churn").</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="gantt-chart" class="w-5 h-5 text-amber-400 mt-1 flex-shrink-0"></i>
+                            <div>
+                                <span class="font-semibold text-white">Build Strategic Depth:</span>
+                                <p class="p-sm text-slate-300">Develop solutions that move beyond generic tactical fixes (like simple discounts) to address long-term competitive positioning and user lifecycle using frameworks like Blue Ocean Strategy.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="layout-list" class="w-5 h-5 text-amber-400 mt-1 flex-shrink-0"></i>
+                            <div>
+                                <span class="font-semibold text-white">Prioritization Frameworks:</span>
+                                <p class="p-sm text-slate-300">Practice using RICE or MoSCoW to quickly justify prioritization decisions, providing a clear rationale for trade-offs.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="award" class="w-5 h-5 text-amber-400 mt-1 flex-shrink-0"></i>
+                            <div>
+                                <span class="font-semibold text-white">Demonstrate Leadership:</span>
+                                <p class="p-sm text-slate-300">Rework professional stories to focus on instances of driving cross-functional alignment, defining the vision, and managing stakeholder conflict, rather than just personal execution.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Summary Section for Improvement -->
+        <section class="fade-in-section">
+            <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center flex items-center justify-center gap-3 text-white">
+                <i data-lucide="bar-chart-2"></i>Summary: Key Areas for Growth
+            </h2>
+            <div class="glass-card rounded-2xl p-6 md:p-8 shadow-2xl">
+                <p class="text-slate-300 mb-4">Vidhu demonstrates strong fundamental knowledge of product processes and external market factors. To reach job-ready status for a Mid-Senior PM role, improvement must be focused on two critical areas:</p>
+                <ul class="list-disc list-inside text-slate-300 text-sm space-y-3">
+                    <li>Communication and Poise: The primary barrier remains the ability to articulate complex thoughts concisely and assertively. The lack of structured communication consumes interview time and obscures strong analytical thinking.</li>
+                    <li>Decisiveness and Strategic Vision: While the root cause analysis is holistic, the inability to commit to a primary driver and generate novel solutions suggests a gap in strategic prioritization and product intuition. This must be addressed through focused practice on making and defending choices.</li>
+                </ul>
+                <p class="text-slate-300 mt-4 font-semibold text-lg text-yellow-400">Next Step: Focus intensely on structural communication exercises and strategic prioritization frameworks (like RICE or MoSCoW) to translate analytical strength into executive clarity.</p>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // JavaScript for fade-in animation on scroll
+        const sections = document.querySelectorAll('.fade-in-section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        sections.forEach(section => { observer.observe(section); });
+
+        // Chart.js Implementation for Radar Chart
+        document.addEventListener('DOMContentLoaded', () => {
+            const chartFontColor = '#e2e8f0'; // slate-200
+            const chartGridColor = 'rgba(255, 255, 255, 0.15)';
+
+            // Data sourced from Competency Table - Updated to new scores
+            const competencyData = {
+                labels: ['Domain', 'Problem-Solving', 'Analytical', 'Creativity', 'Communication', 'Decision-Making', 'Leadership'],
+                datasets: [{
+                    label: 'Vidhu\'s Rating (/5)',
+                    data: [4.0, 4.0, 3.5, 2.5, 2.5, 3.0, 2.5], // Final Scores: 4.0, 4.0, 3.5, 2.5, 2.5, 3.0, 2.5
+                    backgroundColor: 'rgba(34, 211, 238, 0.3)', // Cyan 400 with opacity
+                    borderColor: 'rgba(34, 211, 238, 1)',
+                    pointBackgroundColor: 'rgba(34, 211, 238, 1)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(34, 211, 238, 1)'
+                }]
+            };
+
+            const chartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { labels: { color: chartFontColor } }
+                },
+                scales: {
+                    r: {
+                        angleLines: { color: chartGridColor },
+                        grid: { color: chartGridColor },
+                        pointLabels: { color: chartFontColor, font: { size: 12 } },
+                        ticks: {
+                            color: chartFontColor,
+                            backdropColor: 'rgba(0,0,0,0.5)',
+                            stepSize: 1
+                        },
+                        min: 0,
+                        max: 5
+                    }
+                }
+            };
+
+            const skillsCtx = document.getElementById('competencyRadarChart').getContext('2d');
+            new Chart(skillsCtx, {
+                type: 'radar',
+                data: competencyData,
+                options: chartOptions
+            });
+        });
+    </script>
+</body>
+</html>
