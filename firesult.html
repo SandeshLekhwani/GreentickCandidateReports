@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Analysis</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e293b, #334155);
+            background-attachment: fixed;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .tag {
+            background: rgba(34, 211, 238, 0.1);
+            color: #22d3ee;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border: 1px solid rgba(34, 211, 238, 0.2);
+        }
+
+        .fade-in-section {
+            opacity: 0;
+            transition: opacity 0.8s ease-out;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="text-gray-200 antialiased">
+    <div class="container mx-auto p-4 md:p-12 max-w-6xl">
+
+        <!-- Recruiter Header -->
+        <header class="mb-10 fade-in-section">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                <div>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="tag">CFA Level 2 Candidate</span>
+                        <span class="tag">Forensic Accounting Focus</span>
+                        <span class="tag">Analytical High-Potential</span>
+                    </div>
+                    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-2">Sandesh Lekhwani</h1>
+                    <p class="text-xl text-slate-400">Recruitment Analysis: Trainee GBS VAS</p>
+                </div>
+                <div class="glass-card px-8 py-4 rounded-2xl border-l-4 border-l-cyan-400 text-center">
+                    <div class="text-sm uppercase tracking-widest text-slate-400 font-bold mb-1">Overall Match Score</div>
+                    <div class="text-4xl font-black text-white">72%</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Executive Summary & Recommendation -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12 fade-in-section">
+            <div class="lg:col-span-2 glass-card p-8 rounded-3xl">
+                <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                    <i data-lucide="file-text" class="text-cyan-400"></i> Executive Summary
+                </h2>
+                <p class="text-slate-300 leading-relaxed mb-6">
+                    Sandesh is a technically formidable fresher with a forensic mindset rare for his career stage. His performance during the case-study discussion revealed a deep-seated curiosity for uncovering hidden financial risks, specifically around complex debt structures and corporate governance red flags. He successfully articulated a project involving a rights issue where he bridged a 1350 CR discrepancy in debt reporting by investigating subsidiary structures and contingent liabilities. While his backend analytical rigor is top-tier, his professional communication is currently a significant bottleneck, characterized by rambling, repetitive delivery and a lack of executive brevity.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-white/5 p-4 rounded-xl border border-white/10">
+                        <div class="text-xs font-bold text-cyan-400 uppercase mb-1">Primary Value Add</div>
+                        <div class="text-white font-medium">Sophisticated debt instrument analysis (OCDs/NCDs) and forensic auditing of corporate structures.</div>
+                    </div>
+                    <div class="bg-white/5 p-4 rounded-xl border border-white/10">
+                        <div class="text-xs font-bold text-amber-400 uppercase mb-1">Critical Development Need</div>
+                        <div class="text-white font-medium">Executive communication and structural clarity. Reluctance to be concise reduces professional impact.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl border-t-4 border-t-cyan-400">
+                <h2 class="text-xl font-bold text-white mb-4">Hiring Recommendation</h2>
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-cyan-400/20 rounded-full">
+                        <i data-lucide="user-plus" class="text-cyan-400"></i>
+                    </div>
+                    <div>
+                        <div class="text-lg font-bold text-white leading-tight">Hire with Training</div>
+                        <div class="text-sm text-slate-400">High-capacity technical asset</div>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex justify-between text-sm">
+                        <span class="text-slate-400">Financial Modeling</span>
+                        <span class="text-white font-bold">85%</span>
+                    </div>
+                    <div class="w-full bg-white/10 h-2 rounded-full">
+                        <div class="bg-cyan-400 h-2 rounded-full" style="width: 85%"></div>
+                    </div>
+                    <div class="flex justify-between text-sm pt-2">
+                        <span class="text-slate-400">Forensic Logic</span>
+                        <span class="text-white font-bold">90%</span>
+                    </div>
+                    <div class="w-full bg-white/10 h-2 rounded-full">
+                        <div class="bg-cyan-400 h-2 rounded-full" style="width: 90%"></div>
+                    </div>
+                    <div class="flex justify-between text-sm pt-2">
+                        <span class="text-slate-400">Communication Clarity</span>
+                        <span class="text-white font-bold">45%</span>
+                    </div>
+                    <div class="w-full bg-white/10 h-2 rounded-full">
+                        <div class="bg-amber-400 h-2 rounded-full" style="width: 45%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Evidence Section: Case Highlights -->
+        <section class="mb-12 fade-in-section">
+            <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                <i data-lucide="microscope"></i> Transcript Evidence: Case Study Highlights
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="glass-card p-6 rounded-2xl">
+                    <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                        <i data-lucide="activity" class="text-cyan-400"></i> Rights Issue Forensic Analysis
+                    </h3>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        Sandesh identified a major discrepancy in a rights-issue project where the balance sheet showed 1700 CR of debt while investor presentations claimed 3050 CR. He successfully navigated through notes to accounts to identify segments of current/non-current liabilities, corporate guarantees, and subsidiary defaults in Mauritius. He also modeled how a 600 CR debt repayment would impact the finance cost and the bottom line (PAT) after the rights issue.
+                    </p>
+                </div>
+                <div class="glass-card p-6 rounded-2xl">
+                    <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                        <i data-lucide="shield-alert" class="text-cyan-400"></i> Red Flag Detection Logic
+                    </h3>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        He demonstrated a systematic approach to identifying corporate governance risks. His checklist includes: identifying suspicious subsidiary locations (Cayman, Mauritius, Singapore), scrutinizing auditor opinions (Qualified vs Adverse), and analyzing board composition (Executive vs Independent proportions). He also looks for channel stuffing through trade receivables and smoothing of sales/profit targets by comparing cash conversion cycles with peers.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Competency Radar -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12 fade-in-section">
+            <div class="glass-card p-8 rounded-3xl">
+                <h2 class="text-xl font-bold text-white mb-6">Analytical Fingerprint</h2>
+                <div class="h-[350px]">
+                    <canvas id="competencyRadarChart"></canvas>
+                </div>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl">
+                <h2 class="text-xl font-bold text-white mb-6">Recruiter Scorecard</h2>
+                <div class="space-y-6">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <div class="font-bold text-white">Debt Structuring & Valuation</div>
+                            <div class="text-xs text-slate-400">Detailed understanding of OCDs, NCDs, and debenture repayment cycles.</div>
+                        </div>
+                        <div class="text-cyan-400 font-bold">4.5/5</div>
+                    </div>
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <div class="font-bold text-white">Forensic Risk Assessment</div>
+                            <div class="text-xs text-slate-400">High initiative in identifying red flags, contingent liabilities, and joint venture risks.</div>
+                        </div>
+                        <div class="text-cyan-400 font-bold">4.5/5</div>
+                    </div>
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <div class="font-bold text-white">Analytical Problem Solving</div>
+                            <div class="text-xs text-slate-400">Ability to break down complex discrepancies between public and private data.</div>
+                        </div>
+                        <div class="text-cyan-400 font-bold">4.0/5</div>
+                    </div>
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <div class="font-bold text-white">Communication Structure</div>
+                            <div class="text-xs text-slate-400">Significant issues with rambling, repetition, and circular explanations.</div>
+                        </div>
+                        <div class="text-red-400 font-bold">2.0/5</div>
+                    </div>
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <div class="font-bold text-white">Professional Poise</div>
+                            <div class="text-xs text-slate-400">Needs to improve professional tone and executive presence in reporting.</div>
+                        </div>
+                        <div class="text-amber-400 font-bold">3.0/5</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pre-Hiring Considerations & Future Validation -->
+        <section class="fade-in-section mb-12">
+            <h2 class="text-2xl font-bold text-white mb-8 flex items-center gap-3">
+                <i data-lucide="help-circle"></i> Pre-Hiring Considerations & Future Validation
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Strategic Considerations -->
+                <div class="glass-card p-8 rounded-3xl border-l-4 border-l-cyan-400">
+                    <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                        <i data-lucide="brain"></i> Considerations Before Hiring
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="p-4 bg-white/5 rounded-xl">
+                            <div class="text-cyan-400 font-bold text-sm mb-1">Communication-Quality Trade-off</div>
+                            <p class="text-xs text-slate-300">Evaluate if the role can tolerate high-friction delivery (rambling) in exchange for exceptional backend analytical depth. He is currently a high-output, low-polish asset.</p>
+                        </div>
+                        <div class="p-4 bg-white/5 rounded-xl">
+                            <div class="text-cyan-400 font-bold text-sm mb-1">Collaborative Environment Fit</div>
+                            <div class="text-xs text-slate-300">His self-positioning as a solo researcher suggests he may struggle in highly agile, collaborative teams where rapid consensus and concise updates are mandatory.</div>
+                        </div>
+                        <div class="p-4 bg-white/5 rounded-xl">
+                            <div class="text-cyan-400 font-bold text-sm mb-1">Long-term Capacity</div>
+                            <div class="text-xs text-slate-300">CFA Level 2 status indicates strong academic discipline and long-term potential for lead analyst tracks if his executive presence is coached properly.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Validation in Next Interviews -->
+                <div class="glass-card p-8 rounded-3xl border-l-4 border-l-amber-400">
+                    <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                        <i data-lucide="check-circle"></i> Validation in Next Interviews
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="p-4 bg-white/5 rounded-xl">
+                            <div class="text-amber-400 font-bold text-sm mb-1">The Synthesis Test</div>
+                            <p class="text-xs text-slate-300">Stress-test his conciseness. Ask him to explain the 1350 CR debt discrepancy again, but restrict him to 60 seconds. Observe if he can lead with the bottom-line insight.</p>
+                        </div>
+                        <div class="p-4 bg-white/5 rounded-xl">
+                            <div class="text-amber-400 font-bold text-sm mb-1">Feedback Receptivity</div>
+                            <p class="text-xs text-slate-300">Intentionally interrupt one of his longer explanations to provide feedback on his rambling. Observe if he can immediately pivot to a more concise structure or remains circular.</p>
+                        </div>
+                        <div class="p-4 bg-white/5 rounded-xl">
+                            <div class="text-amber-400 font-bold text-sm mb-1">Technical Verification</div>
+                            <p class="text-xs text-slate-300">Conduct a live whiteboarding or spreadsheet exercise of a forensic audit. Ensure the sophistication shown in his verbal case study is backed by actual data manipulation skills.</p>
+                        </div>
+                        <div class="p-4 bg-white/5 rounded-xl">
+                            <div class="text-amber-400 font-bold text-sm mb-1">Behavioral Teamwork Scenarios</div>
+                            <p class="text-xs text-slate-300">Push beyond the me and my senior narrative. Ask for a specific instance where he had to integrate his findings into a larger team deliverable with conflicting opinions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Notes -->
+        <footer class="text-center text-slate-500 text-sm py-8 border-t border-white/10 fade-in-section">
+            <p>Generated by Green Tick Interview Analysis • Recruiter Confidential View</p>
+        </footer>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        const sections = document.querySelectorAll('.fade-in-section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        sections.forEach(section => { observer.observe(section); });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const chartFontColor = '#94a3b8'; 
+            const chartGridColor = 'rgba(255, 255, 255, 0.1)';
+
+            const competencyData = {
+                labels: ['Domain Knowledge', 'Forensic Logic', 'Analytical Rigor', 'Data Interpretation', 'Detail Orientation', 'Communication', 'Executive Poise', 'Problem Solving'],
+                datasets: [{
+                    label: 'Sandesh Profile',
+                    data: [4.5, 4.5, 4.0, 4.0, 4.5, 2.0, 3.0, 4.0],
+                    backgroundColor: 'rgba(34, 211, 238, 0.2)',
+                    borderColor: 'rgba(34, 211, 238, 1)',
+                    pointBackgroundColor: '#22d3ee',
+                    pointBorderColor: '#fff',
+                    borderWidth: 2
+                }]
+            };
+
+            const chartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: { color: chartGridColor },
+                        grid: { color: chartGridColor },
+                        pointLabels: { color: chartFontColor, font: { size: 10, weight: 'bold' } },
+                        ticks: { display: false, stepSize: 1 },
+                        min: 0,
+                        max: 5
+                    }
+                },
+                plugins: {
+                    legend: { display: false }
+                }
+            };
+
+            const skillsCtx = document.getElementById('competencyRadarChart').getContext('2d');
+            new Chart(skillsCtx, {
+                type: 'radar',
+                data: competencyData,
+                options: chartOptions
+            });
+        });
+    </script>
+</body>
+</html>
