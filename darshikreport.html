@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recruiter View: Darshik Analysis</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e293b, #334155);
+            background-attachment: fixed;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .tag {
+            background: rgba(34, 211, 238, 0.1);
+            color: #22d3ee;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border: 1px solid rgba(34, 211, 238, 0.2);
+        }
+
+        .fade-in-section {
+            opacity: 0;
+            transition: opacity 0.8s ease-out;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="text-gray-200 antialiased">
+    <div class="container mx-auto p-4 md:p-12 max-w-6xl">
+
+        <!-- Recruiter Header -->
+        <header class="mb-10 fade-in-section">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                <div>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="tag">AAOS / Bluetooth Stack</span>
+                        <span class="tag">9 Years Experience</span>
+                        <span class="tag">Technical IC Potential</span>
+                    </div>
+                    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-2">Darshik</h1>
+                    <p class="text-xl text-slate-400">Recruitment Analysis: Android AAOS Developer (BLE & API)</p>
+                </div>
+                <div class="glass-card px-8 py-4 rounded-2xl border-l-4 border-l-cyan-400 text-center">
+                    <div class="text-sm uppercase tracking-widest text-slate-400 font-bold mb-1">Aggregate Score</div>
+                    <div class="text-4xl font-black text-white">3.2 / 5</div>
+                    <div class="text-sm text-cyan-400 font-semibold mt-1">65% Match</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hiring Recommendation -->
+        <section class="mb-12 fade-in-section">
+            <div class="glass-card p-8 rounded-3xl border-t-4 border-t-cyan-400 flex flex-col gap-8">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div class="flex items-center gap-6">
+                        <div class="p-5 bg-cyan-400/20 rounded-full">
+                            <i data-lucide="award" class="text-cyan-400 w-8 h-8"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-white leading-tight">Recommendation: Hire as Senior Individual Contributor</h2>
+                            <div class="text-slate-400 mt-1 text-lg">Primary focus: Core feature development & domain-specific query fixing</div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-3 w-full md:w-1/3">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-slate-400">Technical Domain Alignment</span>
+                            <span class="text-white font-bold">80%</span>
+                        </div>
+                        <div class="w-full bg-white/10 h-2 rounded-full">
+                            <div class="bg-cyan-400 h-2 rounded-full" style="width: 80%"></div>
+                        </div>
+                        <div class="flex justify-between text-sm pt-2">
+                            <span class="text-slate-400">Executive Readiness</span>
+                            <span class="text-white font-bold">45%</span>
+                        </div>
+                        <div class="w-full bg-white/10 h-2 rounded-full">
+                            <div class="bg-amber-400 h-2 rounded-full" style="width: 45%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-white/10">
+                    <div class="flex gap-3">
+                        <i data-lucide="check-circle-2" class="text-cyan-400 w-6 h-6 shrink-0"></i>
+                        <div>
+                            <p class="font-bold text-white">Ideal Environment</p>
+                            <p class="text-sm text-slate-400 leading-snug">Execution-focused teams with strong technical leads who can provide architectural blueprints.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3">
+                        <i data-lucide="alert-circle" class="text-amber-400 w-6 h-6 shrink-0"></i>
+                        <div>
+                            <p class="font-bold text-white">Immediate Action</p>
+                            <p class="text-sm text-slate-400 leading-snug">Pair with a strong communicator for stakeholder updates to mitigate communication friction.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3">
+                        <i data-lucide="trending-up" class="text-cyan-400 w-6 h-6 shrink-0"></i>
+                        <div>
+                            <p class="font-bold text-white">Upskill Potential</p>
+                            <p class="text-sm text-slate-400 leading-snug">High potential for Senior Developer track once structural thinking in problem-solving is refined.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Executive Summary -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12 fade-in-section">
+            <div class="glass-card p-8 rounded-3xl">
+                <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                    <i data-lucide="file-text" class="text-cyan-400"></i> Executive Summary
+                </h2>
+                <p class="text-slate-300 leading-relaxed mb-6">
+                    Darshik is an experienced Android developer with 9 years in the field and a solid hands-on background in Android Automotive OS (AAOS), specifically with Bluetooth Media stacks. His transcript reveals detailed familiarity with MediaBrowserService, AVRCP controllers, and DPC stream handlers. While his technical alignment justifies a 65% match, there is a significant gap between his claimed Lead role and his communicative ability. His responses were often fragmented and reactive, focusing heavily on log-checking rather than architectural strategy. He is a strong candidate for an individual contributor role where his deep AAOS domain knowledge can be utilized under structured technical leadership.
+                </p>
+            </div>
+            <div class="glass-card p-8 rounded-3xl">
+                <h2 class="text-xl font-bold text-white mb-4">Core Value vs Risk</h2>
+                <div class="space-y-4">
+                    <div class="bg-white/5 p-4 rounded-xl border border-white/10">
+                        <div class="text-xs font-bold text-cyan-400 uppercase mb-1">Primary Value Add</div>
+                        <div class="text-white font-medium">Domain expertise in Media Bluetooth, Resource Overlays, and hardware-specific triage (LG/BOSS).</div>
+                    </div>
+                    <div class="bg-white/5 p-4 rounded-xl border border-white/10">
+                        <div class="text-xs font-bold text-amber-400 uppercase mb-1">Critical Development Need</div>
+                        <div class="text-white font-medium">Communicative structure, executive presence, and systematic root cause analysis beyond logs.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Evidence Section -->
+        <section class="mb-12 fade-in-section">
+            <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                <i data-lucide="microscope"></i> Interview Evidence: Technical & Soft Skills
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="glass-card p-6 rounded-2xl">
+                    <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                        <i data-lucide="bluetooth" class="text-cyan-400"></i> Bluetooth Media & Triage
+                    </h3>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        The candidate articulated specific involvement in Media Bluetooth features, utilizing A2DP DPC stream handlers and AVRCP controllers to fetch and control device data. He showed a realistic understanding of the automotive ecosystem, mentioning the coordination required when bugs originate from hardware stakeholders like LG or BOSS versus internal application code.
+                    </p>
+                </div>
+                <div class="glass-card p-6 rounded-2xl">
+                    <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                        <i data-lucide="message-square-off" class="text-amber-400"></i> Communication & Logic Gaps
+                    </h3>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        Responses were frequently fragmented and required multiple clarifications. For instance, when asked about ruling out early factors in an audio bug, he struggled to articulate a specific hypothesis, eventually defaulting to OS-version checks. He also appeared flustered when asked about workarounds versus root cause investigation, indicating a potential lack of senior-level decision-making frameworks.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Radar Chart and Scorecard -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12 fade-in-section">
+            <!-- First Graph: Expanded Radar Chart -->
+            <div class="glass-card p-8 rounded-3xl">
+                <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-2"><i data-lucide="radar"></i> Competency Map</h2>
+                <div class="h-[350px]">
+                    <canvas id="competencyRadarChart"></canvas>
+                </div>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl">
+                <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-2"><i data-lucide="list-checks"></i> Recruiter Scorecard</h2>
+                <div class="space-y-6">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <div class="font-bold text-white">AAOS & Bluetooth Domain</div>
+                            <div class="text-xs text-slate-400">Familiar with MediaBrowserService, AVRCP, and A2DP profiles.</div>
+                        </div>
+                        <div class="text-cyan-400 font-bold">4.0/5</div>
+                    </div>
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <div class="font-bold text-white">Problem Solving Structure</div>
+                            <div class="text-xs text-slate-400">Reactive focus on logs; needs more proactive hypothesis testing.</div>
+                        </div>
+                        <div class="text-amber-400 font-bold">3.0/5</div>
+                    </div>
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <div class="font-bold text-white">Communication Clarity</div>
+                            <div class="text-xs text-slate-400">Struggles with fragmented phrasing and technical articulation.</div>
+                        </div>
+                        <div class="text-red-400 font-bold">2.5/5</div>
+                    </div>
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <div class="font-bold text-white">Leadership & Initiative</div>
+                            <div class="text-xs text-slate-400">Limited evidence of proactive ownership or team mentorship.</div>
+                        </div>
+                        <div class="text-red-400 font-bold">2.7/5</div>
+                    </div>
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <div class="font-bold text-white">Adaptability & Poise</div>
+                            <div class="text-xs text-slate-400">Maintains professional composure despite communication hurdles.</div>
+                        </div>
+                        <div class="text-cyan-400 font-bold">4.0/5</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Future Validation -->
+        <section class="fade-in-section mb-12">
+            <h2 class="text-2xl font-bold text-white mb-8 flex items-center gap-3">
+                <i data-lucide="help-circle"></i> Considerations & Next Steps
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Strategic Considerations -->
+                <div class="glass-card p-8 rounded-3xl border-l-4 border-l-cyan-400">
+                    <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                        <i data-lucide="brain"></i> Considerations Before Hiring
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="p-4 bg-white/5 rounded-xl">
+                            <div class="text-cyan-400 font-bold text-sm mb-1">IC vs Lead Track</div>
+                            <p class="text-xs text-slate-300">While Darshik claims leadership experience, his behavioral signals suggest a much stronger fit as a Senior Individual Contributor. Expect high technical output but limited architectural or mentorship capacity initially.</p>
+                        </div>
+                        <div class="p-4 bg-white/5 rounded-xl">
+                            <div class="text-cyan-400 font-bold text-sm mb-1">Communication Barrier</div>
+                            <div class="text-xs text-slate-300">The primary risk is the communicative friction in a fast-paced environment. Assess if the team has the bandwidth to manage fragmented requirements or status updates.</div>
+                        </div>
+                        <div class="p-4 bg-white/5 rounded-xl">
+                            <div class="text-cyan-400 font-bold text-sm mb-1">Diagnostic Dependency</div>
+                            <div class="text-xs text-slate-300">He relies heavily on log-checking (Notepad++/Linux). Ensure he is paired with a lead who can push him toward proactive system-wide design thinking.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Validation in Next Interviews -->
+                <div class="glass-card p-8 rounded-3xl border-l-4 border-l-amber-400">
+                    <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                        <i data-lucide="check-circle"></i> Validation in Next Interviews
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="p-4 bg-white/5 rounded-xl">
+                            <div class="text-amber-400 font-bold text-sm mb-1">The Synthesis Challenge</div>
+                            <p class="text-xs text-slate-300">Ask him to explain the MediaBrowserService architecture to a non-technical manager. Look for his ability to simplify complex concepts without resorting to jargon or rambling.</p>
+                        </div>
+                        <div class="p-4 bg-white/5 rounded-xl">
+                            <div class="text-amber-400 font-bold text-sm mb-1">Scenario-Based Whiteboarding</div>
+                            <p class="text-xs text-slate-300">Push him on a design trade-off. For example, ask why choose one Bluetooth profile over another for a specific use case. Observe if he can justify the choice strategically.</p>
+                        </div>
+                        <div class="p-4 bg-white/5 rounded-xl">
+                            <div class="text-amber-400 font-bold text-sm mb-1">Ownership Validation</div>
+                            <p class="text-xs text-slate-300">Ask for a specific instance where he disagreed with an architectural direction and how he managed the conflict. This will validate the substance of his Lead claim.</p>
+                        </div>
+                        <div class="p-4 bg-white/5 rounded-xl">
+                            <div class="text-amber-400 font-bold text-sm mb-1">Modern Tech Proficiency</div>
+                            <p class="text-xs text-slate-300">He mentioned Jetpack Compose and Kotlin as future interests. Verify his current proficiency in these during a live coding session to ensure his skills align with modern Android standards.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Notes -->
+        <footer class="text-center text-slate-500 text-sm py-8 border-t border-white/10 fade-in-section">
+            <p>Generated by Green Tick Interview Analysis • Recruiter Confidential View</p>
+        </footer>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        const sections = document.querySelectorAll('.fade-in-section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        sections.forEach(section => { observer.observe(section); });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const chartFontColor = '#94a3b8'; 
+            const chartGridColor = 'rgba(255, 255, 255, 0.1)';
+
+            const competencyData = {
+                labels: [
+                    'AAOS Domain Knowledge', 
+                    'Problem Solving Structure', 
+                    'Technical Aptitude', 
+                    'Analytical Thinking', 
+                    'Communication Clarity', 
+                    'Leadership Maturity', 
+                    'Decision Making & Rationale', 
+                    'Adaptability & Poise',
+                    'Process Awareness'
+                ],
+                datasets: [{
+                    label: 'Darshik Competency Map',
+                    data: [4.0, 3.0, 3.5, 3.2, 2.5, 2.7, 2.8, 4.0, 3.2],
+                    backgroundColor: 'rgba(34, 211, 238, 0.2)',
+                    borderColor: 'rgba(34, 211, 238, 1)',
+                    pointBackgroundColor: '#22d3ee',
+                    pointBorderColor: '#fff',
+                    borderWidth: 2
+                }]
+            };
+
+            const chartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: { color: chartGridColor },
+                        grid: { color: chartGridColor },
+                        pointLabels: { color: chartFontColor, font: { size: 9, weight: 'bold' } },
+                        ticks: { display: false, stepSize: 1 },
+                        min: 0,
+                        max: 5
+                    }
+                },
+                plugins: {
+                    legend: { display: false }
+                }
+            };
+
+            const skillsCtx = document.getElementById('competencyRadarChart').getContext('2d');
+            new Chart(skillsCtx, {
+                type: 'radar',
+                data: competencyData,
+                options: chartOptions
+            });
+        });
+    </script>
+</body>
+</html>
